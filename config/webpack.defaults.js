@@ -39,7 +39,13 @@ module.exports = {
     }, {
       name: 'css',
       test: /\.css$/,
-      loader: 'css?modules&importLoaders=1&context=src/components&localIdentName=[path][local]!postcss',
+      include: [path.resolve('src')],
+      loader: 'css?modules&importLoaders=1&localIdentName=[path][local]!postcss',
+    }, {
+      name: 'css',
+      test: /\.css$/,
+      include: [path.resolve('node_modules')],
+      loader: 'css',
     }, {
       test: /\.(jpe?g|png|gif|svg)$/i,
       loaders: [
